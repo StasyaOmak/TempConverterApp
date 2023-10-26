@@ -171,6 +171,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="openSettings:" destination="ng9-Fc-FT5" eventType="touchUpInside" id="awi-ec-3D2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dje-hG-927" userLabel="Exit Button">
                                 <rect key="frame" x="354" y="29" width="40" height="40"/>
@@ -186,6 +189,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeItemTapped:" destination="ng9-Fc-FT5" eventType="touchUpInside" id="o7d-pk-gp6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lZv-3r-WKT"/>
@@ -203,6 +209,11 @@
                             <constraint firstItem="lZv-3r-WKT" firstAttribute="trailing" secondItem="Lt6-Gn-m0e" secondAttribute="trailing" id="lFx-ll-MH1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="dje-hG-927" id="cLu-qJ-lmh"/>
+                        <outlet property="settingsButton" destination="ey9-9h-o46" id="x6A-yP-veI"/>
+                        <outlet property="textLabel" destination="uTw-E9-s0l" id="mqD-r1-Xk4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K9T-xV-BWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

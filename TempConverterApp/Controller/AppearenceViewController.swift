@@ -9,21 +9,33 @@ import UIKit
 
 class AppearenceViewController: UIViewController {
 
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setLabelText()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func closeItemTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    */
+    
+    @IBAction func openSettings(_ sender: Any) {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
+    
+    func setLabelText() {
+        textLabel.text = self.traitCollection.userInterfaceStyle == .dark ? "Dark Mode is On" : "Light Mode is On"
+        }
+    }
 
+
+extension AppearenceViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setLabelText()
+    }
 }
