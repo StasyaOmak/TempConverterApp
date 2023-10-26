@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,24 +18,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="day" translatesAutoresizingMaskIntoConstraints="NO" id="Avz-fY-rZz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="day" translatesAutoresizingMaskIntoConstraints="NO" id="Avz-fY-rZz" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-Fm-gLI" userLabel="Temp Slider">
+                                <rect key="frame" x="14" y="353" width="386" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hKn-IS-p95"/>
+                                </constraints>
+                                <imageReference key="minimumValueImage" image="sun.min" catalog="system" symbolScale="medium" renderingMode="hierarchical-single" variableValue="1">
+                                    <hierarchicalColors>
+                                        <color red="0.60784313729999995" green="0.80392156859999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color systemColor="secondaryLabelColor"/>
+                                        <color systemColor="tertiaryLabelColor"/>
+                                    </hierarchicalColors>
+                                </imageReference>
+                                <imageReference key="maximumValueImage" image="sun.max" catalog="system" symbolScale="medium" renderingMode="hierarchical-single" variableValue="1">
+                                    <hierarchicalColors>
+                                        <color red="0.92549020049999997" green="0.36470589040000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color systemColor="secondaryLabelColor"/>
+                                        <color systemColor="tertiaryLabelColor"/>
+                                    </hierarchicalColors>
+                                </imageReference>
+                                <color key="minimumTrackTintColor" red="0.92549020049999997" green="0.36470589040000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="maximumTrackTintColor" red="0.60784313725490191" green="0.80392156862745101" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.92156863209999995" green="0.85098040100000005" blue="0.70588237050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp Converter from ºC to ºF, ºK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C4-R3-Gkz" userLabel="Temp Description Label">
+                                <rect key="frame" x="82" y="103" width="250" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WKH-9T-G76"/>
+                                    <constraint firstAttribute="width" constant="250" id="XiJ-1I-g9A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Twm-KT-PgT" userLabel="Degrees Stak View">
+                                <rect key="frame" x="16" y="197" width="382" height="93"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 ºC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyl-MZ-Flb" userLabel="Celsius Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="93"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monk" translatesAutoresizingMaskIntoConstraints="NO" id="qn4-WP-kdh" userLabel="Monk Image View">
+                                        <rect key="frame" x="130" y="0.0" width="122" height="93"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="122" id="ZwR-hR-ik6"/>
+                                            <constraint firstAttribute="height" constant="93" id="s1C-sQ-Z5Z"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 ºF" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukd-Tt-v9x" userLabel="Fahrenheit Label">
+                                        <rect key="frame" x="260" y="0.0" width="122" height="93"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Npe-kL-jE8" userLabel="Segmented Control">
+                                <rect key="frame" x="16" y="469" width="382" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="382" id="Tar-TT-i4a"/>
+                                    <constraint firstAttribute="height" constant="31" id="uEC-td-yme"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Fahrenheit"/>
+                                    <segment title="Kelvin"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.60784313729999995" green="0.80392156859999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Twm-KT-PgT" secondAttribute="trailing" constant="16" id="0Ru-bp-dXz"/>
+                            <constraint firstItem="Kc6-Fm-gLI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="18E-eY-byR"/>
+                            <constraint firstItem="Twm-KT-PgT" firstAttribute="top" secondItem="4C4-R3-Gkz" secondAttribute="bottom" constant="50" id="2CJ-ez-44Z"/>
+                            <constraint firstItem="Kc6-Fm-gLI" firstAttribute="top" secondItem="Twm-KT-PgT" secondAttribute="bottom" constant="63" id="3sE-Vl-6M0"/>
                             <constraint firstAttribute="trailing" secondItem="Avz-fY-rZz" secondAttribute="trailing" id="ANb-Sb-xAm"/>
                             <constraint firstItem="Avz-fY-rZz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CnU-YX-lP6"/>
+                            <constraint firstItem="Kc6-Fm-gLI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="EXB-X2-kcc"/>
                             <constraint firstItem="Avz-fY-rZz" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="Gcy-Ta-Mke"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4C4-R3-Gkz" secondAttribute="trailing" constant="82" id="JUN-DY-TYg"/>
+                            <constraint firstItem="4C4-R3-Gkz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="KoM-k1-7ZM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kc6-Fm-gLI" secondAttribute="trailing" constant="16" id="RFj-Px-KmL"/>
+                            <constraint firstItem="Npe-kL-jE8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Tcc-jE-HN0"/>
+                            <constraint firstItem="4C4-R3-Gkz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="e6P-Xc-ZUf"/>
+                            <constraint firstItem="Npe-kL-jE8" firstAttribute="top" secondItem="Kc6-Fm-gLI" secondAttribute="bottom" constant="86" id="og9-5R-KMi"/>
                             <constraint firstItem="Avz-fY-rZz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pK2-fG-JZQ"/>
+                            <constraint firstItem="Twm-KT-PgT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rLq-7z-81V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Npe-kL-jE8" secondAttribute="trailing" constant="16" id="wRw-Pn-g3G"/>
+                            <constraint firstItem="Npe-kL-jE8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zdl-7f-bfe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TempConverter" id="EhP-EX-rBd"/>
+                    <navigationItem key="navigationItem" title="TempConverter" id="EhP-EX-rBd">
+                        <barButtonItem key="leftBarButtonItem" image="moon.circle" catalog="system" id="ATk-ba-sYl">
+                            <color key="tintColor" red="0.92549020049999997" green="0.36470589040000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="thermometer.transmission" catalog="system" id="qde-mJ-qgy">
+                            <color key="tintColor" red="0.92549020049999997" green="0.36470589040000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="972.46376811594212" y="-2.4456521739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gk1-HZ-Pxn">
@@ -57,8 +148,19 @@
     </scenes>
     <resources>
         <image name="day" width="564" height="1006"/>
+        <image name="monk" width="1024" height="1024"/>
+        <image name="moon.circle" catalog="system" width="128" height="123"/>
+        <image name="sun.max" catalog="system" width="128" height="125"/>
+        <image name="sun.min" catalog="system" width="128" height="123"/>
+        <image name="thermometer.transmission" catalog="system" width="128" height="122"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
