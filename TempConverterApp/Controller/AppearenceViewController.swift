@@ -21,11 +21,18 @@ class AppearenceViewController: UIViewController {
     }
     
     @IBAction func closeItemTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func openSettings(_ sender: Any) {
-        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+//        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        
+        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(settingsURL)
+        } else {
+            print("Error: Invalid value UIApplication.openSettingsURLString")
+        }
+        
     }
     
     func setLabelText() {

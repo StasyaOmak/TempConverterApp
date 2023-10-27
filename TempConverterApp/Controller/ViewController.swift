@@ -39,9 +39,8 @@ class ViewController: UIViewController {
     
     @IBAction func infoButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let infoScreen = storyboard.instantiateViewController(withIdentifier:
-        "InfoViewController") as! InfoViewController
-    
+        guard let infoScreen = storyboard.instantiateViewController(withIdentifier: "InfoViewController") as? InfoViewController else { return }
+        
         infoScreen.info = "Current Temperature"
         infoScreen.desc = "\(celsiusLabel.text ?? "") or \(convertedTempLabel.text ?? "")"
         
