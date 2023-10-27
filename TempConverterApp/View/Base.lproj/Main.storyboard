@@ -43,6 +43,9 @@
                                 <color key="minimumTrackTintColor" red="0.92549020049999997" green="0.36470589040000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="maximumTrackTintColor" red="0.60784313725490191" green="0.80392156862745101" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.92156863209999995" green="0.85098040100000005" blue="0.70588237050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="sliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="qCp-1X-4fs"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp Converter from ºC to ºF, ºK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C4-R3-Gkz" userLabel="Temp Description Label">
                                 <rect key="frame" x="82" y="103" width="250" height="44"/>
@@ -89,6 +92,9 @@
                                     <segment title="Kelvin"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.60784313729999995" green="0.80392156859999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="YFW-tm-9qK"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -124,10 +130,16 @@
                         <barButtonItem key="rightBarButtonItem" image="sun.max" catalog="system" id="qde-mJ-qgy">
                             <color key="tintColor" red="0.92549020049999997" green="0.36470589040000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="eCV-11-B8K" kind="show" id="Dhv-xv-j2J"/>
+                                <action selector="infoButtonTapped:" destination="BYZ-38-t0r" id="DHe-nr-pfy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="celsiusLabel" destination="lyl-MZ-Flb" id="uEP-39-vIS"/>
+                        <outlet property="convertedTempLabel" destination="ukd-Tt-v9x" id="KNC-Ak-ebF"/>
+                        <outlet property="tempSegmentControl" destination="Npe-kL-jE8" id="hsl-B7-kPL"/>
+                        <outlet property="tempSlider" destination="Kc6-Fm-gLI" id="z7J-s5-s9Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,7 +234,7 @@
         <!--Info-->
         <scene sceneID="7Zy-lV-KKz">
             <objects>
-                <viewController id="eCV-11-B8K" customClass="InfoViewController" customModule="TempConverterApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoViewController" id="eCV-11-B8K" customClass="InfoViewController" customModule="TempConverterApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H78-LV-51d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,21 +242,51 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="day" translatesAutoresizingMaskIntoConstraints="NO" id="Tzw-B1-JR3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4fe-ND-HCg">
+                                <rect key="frame" x="57" y="180" width="300" height="220"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0i-Zo-A1E">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="MHY-u1-WYk"/>
+                                            <constraint firstAttribute="width" constant="300" id="vvO-jc-c42"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0D-8v-1cN">
+                                        <rect key="frame" x="0.0" y="120" width="300" height="100"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="a0i-Zo-A1E" firstAttribute="centerX" secondItem="4fe-ND-HCg" secondAttribute="centerX" id="NcN-fQ-aYi"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iil-8L-kc2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4fe-ND-HCg" firstAttribute="centerX" secondItem="H78-LV-51d" secondAttribute="centerX" id="18y-ih-krU"/>
                             <constraint firstItem="Tzw-B1-JR3" firstAttribute="top" secondItem="H78-LV-51d" secondAttribute="top" id="IDd-99-SfH"/>
                             <constraint firstAttribute="trailing" secondItem="Tzw-B1-JR3" secondAttribute="trailing" id="QmN-vB-62W"/>
+                            <constraint firstItem="4fe-ND-HCg" firstAttribute="top" secondItem="Iil-8L-kc2" secondAttribute="top" constant="160" id="SaF-U5-b4e"/>
                             <constraint firstItem="Tzw-B1-JR3" firstAttribute="leading" secondItem="H78-LV-51d" secondAttribute="leading" id="eEm-Y7-5j9"/>
                             <constraint firstAttribute="bottom" secondItem="Tzw-B1-JR3" secondAttribute="bottom" id="iCf-8H-2q7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="9cE-En-abT"/>
+                    <connections>
+                        <outlet property="descLabel" destination="G0D-8v-1cN" id="Pt1-Y2-ChV"/>
+                        <outlet property="infoLabel" destination="a0i-Zo-A1E" id="8Qy-46-sNK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5U-aK-qac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1923" y="-2"/>
+            <point key="canvasLocation" x="1921.7391304347827" y="-2.4456521739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gk1-HZ-Pxn">
