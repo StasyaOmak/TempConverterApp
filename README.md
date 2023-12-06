@@ -16,8 +16,6 @@ TempConverterApp is a simple temperature conversion application that allows user
 
 
 ## Screenshots
+![Simulator Screen Recording - iPhone SE (3rd generation) - 2023-10-27 at 11 03 05 (1)](https://github.com/StasyaOmak/TempConverterApp/assets/127408467/9d9fd24f-76bb-4e72-b208-44ab90a97144)  ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-10-27 at 11 03 27 (1)](https://github.com/StasyaOmak/TempConverterApp/assets/127408467/629d3e92-1af5-4ba6-9158-8e39903d5463)
 
-
-![Simulator Screen Recording - iPhone SE (3rd generation) - 2023-10-27 at 11 03 05 (1)](https://github.com/StasyaOmak/Test_Code-Storybord/assets/127408467/f1ea459e-b552-4551-bb08-3b5595c1b58c) ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-10-27 at 11 03 27 (1)](https://github.com/StasyaOmak/Test_Code-Storybord/assets/127408467/2adc1110-f03d-44ff-8bba-9d9f42976ae1)
-
-![Simulator Screenshot - iPhone SE (3rd generation) - 2023-10-27 at 11 03 44](https://github.com/StasyaOmak/Test_Code-Storybord/assets/127408467/90266868-66dc-4873-bef5-d6616812325b) ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-10-27 at 11 03 54](https://github.com/StasyaOmak/Test_Code-Storybord/assets/127408467/aefc7d57-98aa-482d-a047-80371030bf8a)
+![Simulator Screenshot - iPhone SE (3rd generation) - 2023-10-27 at 11 03 54](https://github.com/StasyaOmak/TempConverterApp/assets/127408467/a4db02e9-bb10-4a90-84ea-9fb2ff17663d)
